@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - VibeCoder</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Global Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            overflow: hidden;
+        }
+
+        /* Glassmorphic Container */
+        .auth-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 350px;
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .auth-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .auth-title span {
+            color: #00ffcc;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: 0.3s ease-in-out;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+        }
+
+        /* Signup Button */
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(90deg, #00ffcc, #00d4ff);
+            transition: 0.3s ease-in-out;
+        }
+
+        .auth-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+        }
+
+        /* Switch to Login */
+        .switch-page {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .switch-page a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .switch-page a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2 class="auth-title">Join <span>VibeCoder</span></h2>
+            <form id="signup-form">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="auth-btn">Sign Up</button>
+                <p class="switch-page">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Get user input values
+            let fullName = document.getElementById("full-name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Store user data in localStorage
+            let user = {
+                fullName: fullName,
+                email: email,
+                password: password
+            };
+            localStorage.setItem("vibeCoderUser", JSON.stringify(user));
+
+            // Redirect user to main page
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

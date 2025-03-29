@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Explainer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #00E676;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border: none;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #00C853;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #009624;
+            transform: scale(1.05);
+        }
+
+        .output {
+            width: 100%;
+            background: #252525;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 20px;
+            min-height: 150px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #BDBDBD;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🚀 AI-Powered Code Explanation Tool</h2>
+        <p>Paste your code below and let AI explain it for you!</p>
+
+        <div>
+            <button class="btn" onclick="loadCode('webdev')">Web Dev</button>
+            <button class="btn" onclick="loadCode('cpp')">C++</button>
+            <button class="btn" onclick="loadCode('tensorflow')">TensorFlow</button>
+            <button class="btn" onclick="loadCode('dense')">Python</button>
+            <button class="btn" onclick="loadCode('devops')">DevOps</button>
+        </div>
+
+        <h3>Try Your Own Code</h3>
+        <textarea id="codeInput" placeholder="Write or paste your code here..."></textarea>
+        <button class="btn" onclick="explainCode()">Explain it!</button>
+
+        <h3>📌 Explanation:</h3>
+        <div id="explanation" class="output">Your code explanation will appear here...</div>
+    </div>
+
+    <script>
+        function loadCode(type) {
+            let codeSamples = {
+                "webdev": `<html>\n<head>\n<style>\nbody {background-color: lightblue;}\nh1 {color: navy;}\n</style>\n</head>\n<body>\n<h1>Welcome to Web Development</h1>\n</body>\n</html>`,
+                "cpp": `#include <iostream>\ntemplate <typename T>\nT add(T a, T b) {\n    return a + b;\n}\nint main() {\n    std::cout << add(5, 10) << std::endl;\n    return 0;\n}`,
+                "tensorflow": `import tensorflow as tf\nx = tf.constant(10)\ny = tf.constant(20)\nz = tf.add(x, y)\nprint("Sum:", z)`,
+                "dense": `def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\nprint(factorial(5))`,
+                "devops": `#!/bin/bash\necho "Updating system..."\nsudo apt update && sudo apt upgrade -y`
+            };
+            document.getElementById("codeInput").value = codeSamples[type];
+            explainCode();
+        }
+
+        function explainCode() {
+            let code = document.getElementById("codeInput").value;
+            let explanationDiv = document.getElementById("explanation");
+
+            if (!code.trim()) {
+                explanationDiv.innerHTML = "⚠ Please enter some code to explain.";
+                return;
+            }
+
+            let explanation = "<strong>📌 Detailed Explanation:</strong><br><br>";
+
+            if (code.includes("<html>")) {
+                explanation += "<strong>🔹 HTML Code Structure:</strong><br>";
+                explanation += "✅ <code>&lt;html&gt;</code>: Root element of an HTML page.<br>";
+                explanation += "✅ <code>&lt;head&gt;</code>: Contains meta information and styles.<br>";
+                explanation += "✅ <code>&lt;style&gt;</code>: Defines CSS for the page.<br>";
+                explanation += "✅ <code>&lt;h1&gt;</code>: A header tag used for the title.<br>";
+            }
+
+            if (code.includes("template <typename T>")) {
+                explanation += "<br><strong>🔹 C++ Template Explanation:</strong><br>";
+                explanation += "✅ <code>template <typename T></code>: Generic function for multiple data types.<br>";
+                explanation += "✅ <code>T add(T a, T b)</code>: A function template for addition.<br>";
+            }
+
+            if (code.includes("import tensorflow as tf")) {
+                explanation += "<br><strong>🔹 TensorFlow Code Explanation:</strong><br>";
+                explanation += "✅ <code>import tensorflow as tf</code>: Imports TensorFlow library.<br>";
+                explanation += "✅ <code>tf.constant()</code>: Creates immutable tensors.<br>";
+                explanation += "✅ <code>tf.add()</code>: Adds two tensors.<br>";
+            }
+
+            if (code.includes("def factorial(n):")) {
+                explanation += "<br><strong>🔹 Recursive Function Explanation:</strong><br>";
+                explanation += "✅ <code>def factorial(n):</code>: A recursive function.<br>";
+                explanation += "✅ <code>if n == 0:</code>: Base case to end recursion.<br>";
+            }
+
+            if (code.includes("sudo apt update")) {
+                explanation += "<br><strong>🔹 DevOps Bash Script:</strong><br>";
+                explanation += "✅ <code>#!/bin/bash</code>: Declares a shell script.<br>";
+                explanation += "✅ <code>sudo apt update</code>: Updates package list.<br>";
+            }
+
+            explanationDiv.innerHTML = explanation;
+        }
+    </script>
+
+</body>
+</html>

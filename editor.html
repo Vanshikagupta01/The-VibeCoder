@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CodePen Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header Section -->
+  <header class="flex items-center justify-between p-4 bg-gray-800">
+    <div class="flex items-center space-x-4">
+      <img alt="CodePen Logo" class="w-10 h-10" src="https://storage.googleapis.com/a1aa/image/ub5Sdwbrw0YVb-kwEbA9HYS1Ih-ah7KFmG0WQhziYaE.jpg"/>
+      <input class="bg-gray-700 text-white p-2 rounded-md w-64" placeholder="Search CodePen..." type="text"/>
+    </div>
+    <div class="flex items-center space-x-4">
+      <a href="signup.html"><button class="bg-green-500 text-white px-4 py-2 rounded-md">Sign Up</button></a>
+      <a href="login.html"><button class="bg-gray-700 text-white px-4 py-2 rounded-md">Log In</button></a>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 p-4">
+      <a href="live.html"><button id="startCoding" class="bg-green-500 text-white w-full py-2 rounded-md mb-4">
+        Start Coding
+      </button></a>
+      
+      <nav class="space-y-2">
+        <a id="searchPens" class="block text-white cursor-pointer">Search Pens</a>
+        <a id="challenges" class="block text-white cursor-pointer">Challenges</a>
+        <a id="spark" class="block text-white cursor-pointer">Spark</a>
+        <a id="codepenPro" class="block text-white cursor-pointer">
+          CodePen <span class="text-yellow-500">PRO</span>
+        </a>
+      </nav>
+      <div class="mt-8">
+        <img alt="Icons" class="w-10 h-10 mb-2" src="https://storage.googleapis.com/a1aa/image/h9l7jqV-xtGXIqcm4zEalilaqK5UDyXG5d2e-G5bPoo.jpg"/>
+        <p class="text-gray-400">Design and Development tips in your inbox. Every weekday.</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <img alt="CodePen Icon" class="mx-auto mb-4" src="https://storage.googleapis.com/a1aa/image/qjgo1oOzaHpEB58d_6KJmfK_97U5FhkhQ5pspy9PvIQ.jpg" width="50"/>
+        <h1 class="text-4xl font-bold mb-4">The best place to build, test, and discover front-end code.</h1>
+        <p class="text-lg text-gray-400 mb-8">
+          CodePen is a <span class="font-bold text-white">social development environment</span> for front-end designers and developers. 
+          Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.
+        </p>
+        <a href="suf.html"><button class="bg-green-500 text-white px-6 py-3 rounded-md">Sign Up for Free</button></a>
+      </div>
+
+      <!-- Sponsored Section -->
+      <div class="mt-8 bg-gray-800 p-4 rounded-md flex items-center justify-between">
+        <img alt="Google Cloud Future of AI 2025" class="w-24 h-12" src="https://storage.googleapis.com/a1aa/image/50rcohQTQsURTAEf9rPcyYI_e1EFug2rQNEzt6Y8qx0.jpg"/>
+        <div class="ml-4">
+          <h2 class="text-white font-bold">Google Cloud</h2>
+          <p class="text-gray-400">Google Cloud's Future of AI: Perspectives for Startups report shares insights from AI experts.</p>
+        </div>
+        <span class="text-gray-400">SPONSOR</span>
+      </div>
+
+      <!-- Code Preview Section -->
+      <div class="mt-8 flex space-x-4">
+        <div class="bg-gray-800 p-4 rounded-md w-1/3">
+          <h3 class="text-white font-bold mb-2">HTML</h3>
+          <pre class="bg-gray-700 p-4 rounded-md text-left text-gray-300"><code>&lt;div class="rect"&gt;&lt;/div&gt;</code></pre>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-md w-1/3">
+          <h3 class="text-white font-bold mb-2">SCSS</h3>
+          <pre class="bg-gray-700 p-4 rounded-md text-left text-gray-300"><code>.rect {
+  background: linear-gradient(-119deg, $gray 0%, $dark-gray 100%);
+}</code></pre>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-md w-1/3">
+          <h3 class="text-white font-bold mb-2">JS</h3>
+          <pre class="bg-gray-700 p-4 rounded-md text-left text-gray-300"><code>var colors = ["#748087", "#DE7300", "#748087"];
+function animate() {}</code></pre>
+        </div>
+      </div>
+
+      <!-- New Section Added -->
+      <header class="text-center mt-10">
+        <h1 class="text-3xl font-bold">A front-end environment made for testing and sharing</h1>
+        <a class="text-blue-400 mt-2 inline-block" href="#">Explore the Editor</a>
+      </header>
+      <main class="mt-10 flex flex-col items-center w-full max-w-6xl">
+        <div class="flex flex-col md:flex-row w-full">
+          <!-- Left Section -->
+          <div class="flex flex-col items-start space-y-4 w-full md:w-1/2 p-4">
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Support For the Way You Code</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Keep Your Pens Private</span>
+            </div>
+            <div class="bg-black p-4 rounded-lg">
+              <p class="text-gray-400">Nobody can see your private stuff until <em>you want them to</em>, because they are at secret <strong>unguessable, non-searchable, non-indexable URLs.</strong></p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Embed Pens</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Asset Hosting</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Build Entire Projects</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-caret-right"></i>
+              <span>Collab Mode</span>
+            </div>
+          </div>
+          <!-- Right Section -->
+          <div class="flex justify-center items-center w-full md:w-1/2 p-4">
+            <img alt="Screenshot of a code editor with various settings and options" class="rounded-lg" height="400" src="https://storage.googleapis.com/a1aa/image/orfz1N8RM6HYG02WwBSj9uIhA-StuW5z8v6LLSFdrTQ.jpg" width="600"/>
+          </div>
+        </div>
+      </main>
+      <footer class="mt-10 flex flex-col items-center">
+        <div class="flex space-x-4">
+          <img alt="Logo 1 " class="rounded-lg" height="100" src="https://storage.googleapis.com/a1aa/image/jl7TMnXwJiKNAGGBylGSCiOUHqw5gBRfwXGqMaFGWHg.jpg" width="100"/>
+          <img alt="Logo 2" class="rounded-lg" height="100" src="https://storage.googleapis.com/a1aa/image/SBATMMUXwEH-Uq7eMse6-SxOHvumrgJ85dNM9CNZe_M.jpg" width="100"/>
+          <img alt="Logo 3" class="rounded-lg" height="100" src="https://storage.googleapis.com/a1aa/image/4SQAlyhrj8iWSbuEDt34Mq4qaUnBD6ajP1RTitfzuQI.jpg" width="100"/>
+          <img alt="Logo 4" class="rounded-lg" height="100" src="https://storage.googleapis.com/a1aa/image/kHtRmJs4F_nQykLQ9QMh-nrANq2EsKUMwiugdDuUL8o.jpg" width="100"/>
+        </div>
+        <div class="mt-10 text-center">
+          <h2 class="text-2xl font-bold">Get Started Quicker</h2>
+          <img alt="Illustration of a person working on a computer" class="mt-4" height="200" src="https://storage.googleapis.com/a1aa/image/Ru3CNpLdGKLoQvsNUXpemGCZiOkvlWO3HtTPGWUjfxs.jpg" width="200"/>
+        </div><br><br>
+        <p class="footer-bottom">&copy; 2025 VibeCoder. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JavaScript for Sidebar Button Clicks -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("startCoding").addEventListener("click", function () {
+        alert("Redirecting to Code Editor...");
+      });
+
+      document.getElementById("searchPens").addEventListener("click", function () {
+        alert("Search Pens clicked!");
+        // window.location.href = 'search.html'; // Uncomment for real navigation
+      });
+
+      document.getElementById("challenges").addEventListener("click", function () {
+        alert("Challenges clicked!");
+        // window.location.href = 'challenges.html';
+      });
+
+      document.getElementById("spark").addEventListener("click", function () {
+        alert("Spark clicked!");
+        // window.location.href = 'spark.html';
+      });
+
+      document.getElementById("codepenPro").addEventListener("click", function () {
+        alert("CodePen PRO clicked!");
+        // window.location.href = 'pro.html';
+      });
+
+      document.getElementById("startCoding").addEventListener("click", function () {
+        window.location.href = "editor.html"; // Redirects to live editor
+      });
+    });
+  </script>
+
+</body>
+</html>

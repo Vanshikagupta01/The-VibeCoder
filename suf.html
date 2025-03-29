@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Denigma Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+        }
+
+        /* Glassmorphic Card */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 255, 128, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Input Fields */
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: #ddd;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #00ffcc;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00ffcc, #00c853);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #00c853, #009624);
+            box-shadow: 0 4px 15px rgba(0, 255, 128, 0.4);
+        }
+
+        /* Success Message */
+        #message {
+            margin-top: 15px;
+            color: #00ffcc;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" name="password" placeholder="Choose a strong password" required>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (name === "" || email === "" || password === "") {
+                document.getElementById('message').innerText = "⚠ Please fill in all fields!";
+                document.getElementById('message').style.color = "red";
+                return;
+            }
+
+            document.getElementById('message').innerText = `🎉 Welcome, ${name}! Your account has been created.`;
+            document.getElementById('message').style.color = "#00ffcc";
+
+            document.getElementById('signupForm').reset();
+        });
+    </script>
+</body>
+</html>
