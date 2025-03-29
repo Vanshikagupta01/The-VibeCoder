@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePen Clone - Live Editor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between p-4 bg-gray-800">
+    <h1 class="text-xl font-bold">Live Code Editor</h1>
+    <button onclick="goBack()" class="bg-red-500 px-4 py-2 rounded-md">Back</button>
+  </header>
+
+  <!-- Code Editor Section -->
+  <div class="flex">
+    <!-- Code Inputs -->
+    <div class="w-1/2 p-4">
+      <h2 class="text-lg font-bold mb-2">HTML</h2>
+      <textarea id="htmlCode" class="w-full h-32 p-2 bg-gray-800 text-white rounded-md" placeholder="Write HTML here..."></textarea>
+
+      <h2 class="text-lg font-bold mt-4 mb-2">CSS</h2>
+      <textarea id="cssCode" class="w-full h-32 p-2 bg-gray-800 text-white rounded-md" placeholder="Write CSS here..."></textarea>
+
+      <h2 class="text-lg font-bold mt-4 mb-2">JavaScript</h2>
+      <textarea id="jsCode" class="w-full h-32 p-2 bg-gray-800 text-white rounded-md" placeholder="Write JavaScript here..."></textarea>
+
+      <button onclick="runCode()" class="mt-4 bg-green-500 px-4 py-2 rounded-md">Run Code</button>
+    </div>
+
+    <!-- Live Output -->
+    <div class="w-1/2 p-4">
+      <h2 class="text-lg font-bold mb-2">Output</h2>
+      <iframe id="outputFrame" class="w-full h-96 bg-white rounded-md"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("htmlCode").value;
+      const css = document.getElementById("cssCode").value;
+      const js = document.getElementById("jsCode").value;
+
+      const outputFrame = document.getElementById("outputFrame").contentWindow.document;
+      outputFrame.open();
+      outputFrame.write(`
+        <html>
+          <head>
+            <style>${css}</style>
+          </head>
+          <body>
+            ${html}
+            <script>${js}<\/script>
+          </body>
+        </html>
+      `);
+      outputFrame.close();
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>
